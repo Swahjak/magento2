@@ -5,6 +5,7 @@
  */
 namespace Magento\Quote\Api;
 
+use Magento\Framework\Api\ExtensibleDataInterface;
 use Magento\TestFramework\ObjectManager;
 use Magento\TestFramework\TestCase\WebapiAbstract;
 use Magento\Quote\Api\Data\AddressInterface;
@@ -79,6 +80,9 @@ class GuestShipmentEstimationTest extends WebapiAbstract
                 AddressInterface::SAME_AS_BILLING => $address->getSameAsBilling(),
                 AddressInterface::CUSTOMER_ADDRESS_ID => $address->getCustomerAddressId(),
                 AddressInterface::SAVE_IN_ADDRESS_BOOK => $address->getSaveInAddressBook(),
+                ExtensibleDataInterface::EXTENSION_ATTRIBUTES_KEY => [
+                    'discounts' => []
+                ],
             ];
 
             $requestData = [
